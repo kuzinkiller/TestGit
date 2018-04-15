@@ -1,0 +1,742 @@
+<!DOCTYPE tiles-definitions PUBLIC
+      "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+      "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+	<!-- Template CMS -->
+	<definition name="cms_login" template="/WEB-INF/views/cms/home/cms_login.jsp"></definition>
+	<definition name="cms_403_page" template="/WEB-INF/views/cms/home/cms_403_page.jsp"></definition>
+	<definition name="cms_forgot_password"
+		template="/WEB-INF/views/cms/home/cms_forgot_password.jsp"></definition>
+
+	<definition name="cms_template" template="/WEB-INF/views/cms/cms_template.jsp">
+		<put-attribute name="cms_title" value="" />
+		<put-attribute name="cms_header"
+			value="/WEB-INF/views/cms/common/cms_header.jsp" />
+		<put-attribute name="cms_sidebar"
+			value="/WEB-INF/views/cms/common/cms_sidebar.jsp" />
+		<put-attribute name="cms_header_title" value="" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/user_profile/cms_user_profile.jsp" />
+		<put-attribute name="cms_footer"
+			value="/WEB-INF/views/cms/common/cms_footer.jsp" />
+
+		<!-- Khai báo các file CSS,JS chung -->
+		<put-list-attribute name="stylesheets">
+			<add-attribute value="/static/lib/AdminLTE-2.4.2/dist/css/AdminLTE.min.css" />
+			<add-attribute value="/static/lib/font-awesome/css/font-awesome.min.css" />
+			<add-attribute
+				value="/static/lib/AdminLTE-2.4.2/dist/css/skins/_all-skins.min.css" />
+			<add-attribute value="/static/lib/jquery-ui-1.12.1/jquery-ui.min.css" />
+			<add-attribute value="/static/lib/select2/dist/css/select2.min.css" />
+			<add-attribute value="/static/lib/bootstrap/dist/css/bootstrap.min.css" />
+			<add-attribute
+				value="/static/lib/datatables-1.10.16/css/dataTables.bootstrap.min.css" />
+			<add-attribute value="/static/css/cms/common/common.css"></add-attribute>
+		</put-list-attribute>
+		<put-list-attribute name="javascripts">
+			<add-attribute value="/static/lib/jquery/dist/jquery.min.js" />
+			<add-attribute value="/static/lib/bootstrap/dist/js/bootstrap.min.js" />
+			<add-attribute value="/static/lib/AdminLTE-2.4.2/dist/js/adminlte.js" />
+			<add-attribute value="/static/lib/jquery-ui-1.12.1/jquery-ui.min.js" />
+			<add-attribute value="/static/lib/select2/dist/js/select2.min.js" />
+			<add-attribute value="/static/js/cms/common/common.js" />
+		</put-list-attribute>
+	</definition>
+
+	<definition name="cms_user_profile" extends="cms_template">
+		<put-attribute name="cms_title" value="User Profile" />
+		<put-attribute name="cms_header_title" value="Thông tin cá nhân" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/user_profile/cms_user_profile.jsp" />
+	</definition>
+
+	<definition name="cms_home" extends="cms_template">
+		<put-attribute name="cms_title" value="CMS Home" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/home/cms_home.jsp" />
+	</definition>
+
+	<!-- Manage position -->
+	<definition name="cms_list_position" extends="cms_template">
+		<put-attribute name="cms_title" value="Manage Position" />
+		<put-attribute name="cms_header_title" value="Quản lý chức vụ" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/position/cms_list_position.jsp" />
+	</definition>
+	<definition name="cms_add_position" extends="cms_template">
+		<put-attribute name="cms_title" value="Manage Position" />
+		<put-attribute name="cms_header_title" value="Quản lý chức vụ" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/position/cms_add_position.jsp" />
+	</definition>
+	<definition name="cms_edit_position" extends="cms_template">
+		<put-attribute name="cms_title" value="Manage Position" />
+		<put-attribute name="cms_header_title" value="Quản lý chức vụ" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/position/cms_edit_position.jsp" />
+	</definition>
+	<definition name="cms_view_position" extends="cms_template">
+		<put-attribute name="cms_title" value="Manage Position" />
+		<put-attribute name="cms_header_title" value="Quản lý chức vụ" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/position/cms_view_position.jsp" />
+	</definition>
+
+	<!-- Manage cms user -->
+	<definition name="cms_list_cms_user" extends="cms_template">
+		<put-attribute name="cms_title" value="Manage CMS User" />
+		<put-attribute name="cms_header_title" value="Quản lý CMS user" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/cms_user/cms_list_cms_user.jsp" />
+	</definition>
+	<definition name="cms_user_template" extends="cms_template">
+		<put-attribute name="cms_title" value="Manage CMS User" />
+		<put-attribute name="cms_header_title" value="Quản lý CMS user" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/cms_user/cms_user_template.jsp" />
+	</definition>
+
+	<!-- Manage news post -->
+	<definition name="cms_list_news_post" extends="cms_template">
+		<put-attribute name="cms_title" value="Manage News" />
+		<put-attribute name="cms_header_title" value="Quản lý tin tức" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/news_post/cms_list_news_post.jsp" />
+	</definition>
+	<definition name="cms_add_news_post" extends="cms_template">
+		<put-attribute name="cms_title" value="Manage News" />
+		<put-attribute name="cms_header_title" value="Quản lý tin tức" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/news_post/cms_add_news_post.jsp" />
+	</definition>
+	<definition name="cms_edit_news_post" extends="cms_template">
+		<put-attribute name="cms_title" value="Manage News" />
+		<put-attribute name="cms_header_title" value="Quản lý tin tức" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/news_post/cms_edit_news_post.jsp" />
+	</definition>
+	<definition name="cms_list_news_post_pending" extends="cms_template">
+		<put-attribute name="cms_title" value="Manage News" />
+		<put-attribute name="cms_header_title" value="Quản lý tin tức cần phê duyệt" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/news_post/cms_list_news_post_pending.jsp" />
+	</definition>
+	<definition name="cms_edit_news_post_pending" extends="cms_template">
+		<put-attribute name="cms_title" value="Manage News" />
+		<put-attribute name="cms_header_title" value="Quản lý tin tức cần phê duyệt" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/news_post/cms_edit_news_post_pending.jsp" />
+	</definition>
+
+	<!-- Manage job post -->
+	<definition name="cms_list_job_post" extends="cms_template">
+		<put-attribute name="cms_title" value="Danh sách công việc" />
+		<put-attribute name="cms_header_title" value="Quản lý tuyển dụng" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_post/cms_list_job_post.jsp" />
+	</definition>
+	<definition name="cms_add_job_post" extends="cms_template">
+		<put-attribute name="cms_title" value="Tạo mới công việc" />
+		<put-attribute name="cms_header_title" value="Quản lý tuyển dụng" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_post/cms_add_job_post.jsp" />
+	</definition>
+	<definition name="cms_edit_job_post" extends="cms_template">
+		<put-attribute name="cms_title" value="Chỉnh sửa công việc" />
+		<put-attribute name="cms_header_title" value="Quản lý tuyển dụng" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_post/cms_edit_job_post.jsp" />
+	</definition>
+	<definition name="cms_clone_job_post" extends="cms_template">
+		<put-attribute name="cms_title" value="Clone công việc" />
+		<put-attribute name="cms_header_title" value="Quản lý tuyển dụng" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_post/cms_clone_job_post.jsp" />
+	</definition>
+	<definition name="cms_list_job_post_pending" extends="cms_template">
+		<put-attribute name="cms_title" value="Manager Job" />
+		<put-attribute name="cms_header_title" value="Quản lý tin tuyển dụng" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_post/cms_list_job_post_pending.jsp" />
+	</definition>
+	<definition name="cms_edit_job_post_pending" extends="cms_template">
+		<put-attribute name="cms_title" value="Manager Job" />
+		<put-attribute name="cms_header_title" value="Quản lý tin tuyển dụng" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_post/cms_edit_job_post_pending.jsp" />
+	</definition>
+	<definition name="cms_view_detail_job_post" extends="cms_template">
+		<put-attribute name="cms_title" value="Manager Job" />
+		<put-attribute name="cms_header_title" value="Quản lý tin tuyển dụng" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_post/cms_view_detail_job_post.jsp" />
+	</definition>
+
+
+
+	<!-- Manage job code -->
+	<!-- Manage company -->
+	<definition name="cms_list_company" extends="cms_template">
+		<put-attribute name="cms_title" value="Danh sách các công ty" />
+		<put-attribute name="cms_header_title" value="Quản lý công ty" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_code/company/cms_list_company.jsp" />
+	</definition>
+	<definition name="cms_add_company" extends="cms_template">
+		<put-attribute name="cms_title" value="Tạo mới công ty" />
+		<put-attribute name="cms_header_title" value="Quản lý công ty" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_code/company/cms_add_company.jsp" />
+	</definition>
+	<definition name="cms_edit_company" extends="cms_template">
+		<put-attribute name="cms_title" value="Chỉnh sửa thông tin công ty" />
+		<put-attribute name="cms_header_title" value="Quản lý công ty" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_code/company/cms_edit_company.jsp" />
+	</definition>
+	<definition name="cms_view_company" extends="cms_template">
+		<put-attribute name="cms_title" value="Xem thông tin công ty" />
+		<put-attribute name="cms_header_title" value="Quản lý công ty" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_code/company/cms_view_company.jsp" />
+	</definition>
+
+	<!-- Manage cmc job code -->
+	<definition name="cms_list_cmc_job_code" extends="cms_template">
+		<put-attribute name="cms_title" value="Danh sách mã Job Code" />
+		<put-attribute name="cms_header_title" value="Quản lý mã Job Code" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_code/cms_list_cmc_job_code.jsp" />
+	</definition>
+	<definition name="cms_add_cmc_job_code" extends="cms_template">
+		<put-attribute name="cms_title" value="Tạo mới mã Job Code" />
+		<put-attribute name="cms_header_title" value="Quản lý mã Job Code" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_code/cms_add_cmc_job_code.jsp" />
+	</definition>
+	<definition name="cms_edit_cmc_job_code" extends="cms_template">
+		<put-attribute name="cms_title" value="Chỉnh sửa mã Job Code" />
+		<put-attribute name="cms_header_title" value="Quản lý mã Job Code" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_code/cms_edit_cmc_job_code.jsp" />
+	</definition>
+	<definition name="cms_view_cmc_job_code" extends="cms_template">
+		<put-attribute name="cms_title" value="Xem chi tiết mã Job Code" />
+		<put-attribute name="cms_header_title" value="Quản lý mã Job Code" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_code/cms_view_cmc_job_code.jsp" />
+	</definition>
+
+
+	<!-- Manage mã công việc -->
+	<definition name="cms_list_jobCode" extends="cms_template">
+		<put-attribute name="cms_title" value="Danh sách các mã công việc" />
+		<put-attribute name="cms_header_title" value="Quản lý Job Code" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_code/jobCode/cms_list_jobCode.jsp" />
+	</definition>
+	<definition name="cms_add_jobcode" extends="cms_template">
+		<put-attribute name="cms_title" value="Tạo mới mã công việc" />
+		<put-attribute name="cms_header_title" value="Quản lý Job Code" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_code/jobCode/cms_add_jobCode.jsp" />
+	</definition>
+	<definition name="cms_edit_jobcode" extends="cms_template">
+		<put-attribute name="cms_title" value="Chỉnh sửa thông tin mã công việc" />
+		<put-attribute name="cms_header_title" value="Quản lý Job Code" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_code/jobCode/cms_edit_jobCode.jsp" />
+	</definition>
+	<definition name="cms_view_jobcode" extends="cms_template">
+		<put-attribute name="cms_title" value="Xem thông tin mã công việc" />
+		<put-attribute name="cms_header_title" value="Quản lý Job Code" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_code/jobCode/cms_view_jobCode.jsp" />
+	</definition>
+	<definition name="cms_user_activity_logging" extends="cms_template">
+		<put-attribute name="cms_title" value="Cms User Activity Log" />
+		<put-attribute name="cms_header_title" value="Lịch sử của người dùng" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/cms_user/cms_user_activity_logging.jsp" />
+	</definition>
+
+	<!-- Report -->
+	<!-- Report_job_code -->
+	<definition name="cms_report_list_job_code" extends="cms_template">
+		<put-attribute name="cms_title" value="Danh sách các mã công việc" />
+		<put-attribute name="cms_header_title" value="Quản lý mã Job Code" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/report/job_code/cms_report_list_job_code.jsp" />
+	</definition>
+
+	<!-- Schedule Backup -->
+	<definition name="cms_schedule_backup" extends="cms_template">
+		<put-attribute name="cms_title"
+			value="Thiết lập kế hoạch backup dữ liệu" />
+		<put-attribute name="cms_header_title"
+			value="Thiết lập kế hoạch backup dữ liệu" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/schedule_backup/cms_schedule_backup.jsp" />
+	</definition>
+
+	<!-- TEMPLATE PORTAL -->
+	<definition name="portal_template" template="/WEB-INF/views/portal/portal_template.jsp">
+		<put-attribute name="portal_title" value="home.title" />
+		<put-attribute name="portal_header"
+			value="/WEB-INF/views/portal/common/portal_header.jsp" />
+		<put-attribute name="portal_content"
+			value="/WEB-INF/views/portal/home/portal_home.jsp" />
+		<put-attribute name="portal_footer"
+			value="/WEB-INF/views/portal/common/portal_footer.jsp" />
+		<put-attribute name="portal_popup"
+			value="/WEB-INF/views/portal/common/portal_popup.jsp" />
+
+		<!-- Khai báo các file CSS chung -->
+		<put-list-attribute name="stylesheets">
+			<add-attribute value="/static/css/portal/common/reset.css" />
+			<add-attribute value="/static/lib/bootstrap-portal/bootstrap.css" />
+			<add-attribute value="/static/lib/slick/slick.css" />
+			<add-attribute value="/static/lib/slick/slick-theme.css" />
+			<add-attribute value="/static/css/portal/common/index.css" />
+			<add-attribute value="/static/css/portal/common/popup.css" />
+			<add-attribute value="/static/lib/font-awesome/css/font-awesome.min.css" />
+			<add-attribute value="/static/css/portal/common/common.css" />
+			<add-attribute value="/static/css/portal/home/slider_jobs.css" />
+			<add-attribute value="/static/css/portal/home/slider_home.css"></add-attribute>
+			<add-attribute value="/static/css/portal/common/flag-icon.css" />
+			<add-attribute value="/static/lib/fancybox/jquery.fancybox.min.css" />
+		</put-list-attribute>
+
+		<!-- Khai báo các file JS chung -->
+		<put-list-attribute name="javascripts">
+			<add-attribute value="/static/lib/jquery-ui-1.12.1/jquery-ui.min.js" />
+			<add-attribute value="/static/lib/bootstrap-portal/bootstrap.js" />
+			<add-attribute value="/static/lib/slick/slick.js" />
+			<add-attribute value="/static/js/portal/common/portal.js" />
+			<add-attribute value="/static/js/portal/common/common.js" />
+			<add-attribute value="/static/js/portal/home/home.js"></add-attribute>
+			<add-attribute value="/static/js/portal/home/slider_jobs.js"></add-attribute>
+			<add-attribute value="/static/lib/fancybox/jquery.fancybox.min.js" />
+		</put-list-attribute>
+	</definition>
+
+	<!-- Home -->
+	<definition name="portal_home" extends="portal_template">
+	</definition>
+	<definition name="portal_login" template="WEB-INF/views/portal/loginPortal.jsp"></definition>
+	<definition name="portal_forgotpassword"
+		template="WEB-INF/views/portal/portal_forgotpassword.jsp"></definition>
+	<definition name="portal_register" template="WEB-INF/views/portal/portal_register.jsp"></definition>
+	<definition name="userportal" template="WEB-INF/views/portal/home/userportal.jsp"></definition>
+	<!-- <definition name="edituserportal" template="WEB-INF/views/portal/home/userportal.jsp"></definition> -->
+	<definition name="job_detail" template="/WEB-INF/views/portal/comment.jsp" />
+
+	<!-- News Post for Portal -->
+	<definition name="portal_list_news_post" extends="portal_template">
+		<put-attribute name="portal_title" value="newsPost.title" />
+		<put-attribute name="portal_content"
+			value="/WEB-INF/views/portal/news_post/portal_list_news_post.jsp" />
+	</definition>
+	<definition name="portal_detail_news_post" extends="portal_template">
+		<put-attribute name="portal_title" value="newsPost.title" />
+		<put-attribute name="portal_content"
+			value="/WEB-INF/views/portal/news_post/portal_detail_news_post.jsp" />
+	</definition>
+
+	<!-- Job Post for Portal -->
+	<definition name="portal_list_job_post" extends="portal_template">
+		<put-attribute name="portal_title" value="jobPost.title" />
+		<put-attribute name="portal_content"
+			value="/WEB-INF/views/portal/job_post/portal_list_job_post.jsp" />
+	</definition>
+	<definition name="portal_detail_job_post" extends="portal_template">
+		<put-attribute name="portal_title" value="jobPost.title" />
+		<put-attribute name="portal_content"
+			value="/WEB-INF/views/portal/job_post/portal_detail_job_post.jsp" />
+	</definition>
+
+	<definition name="error" template="/WEB-INF/views/error.jsp">
+	</definition>
+
+	<!-- Portal User Profile -->
+	<definition name="portal_user_profile" extends="portal_template">
+		<put-attribute name="portal_content"
+			value="/WEB-INF/views/portal/user_profile/portal_user_profile.jsp" />
+		<put-attribute name="portal_header"
+			value="/WEB-INF/views/portal/common/portal_header.jsp" />
+	</definition>
+	<!-- Portal User Account -->
+	<definition name="portal_user_account" extends="portal_template">
+		<put-attribute name="portal_content"
+			value="/WEB-INF/views/portal/user_profile/portal_user_account.jsp" />
+		<put-attribute name="portal_header"
+			value="/WEB-INF/views/portal/common/portal_header.jsp" />
+	</definition>
+
+	<definition name="activeSuccess"
+		template="/WEB-INF/views/portal/user_profile/activeSuccess.jsp">
+	</definition>
+	<definition name="list_apply_job" extends="portal_template">
+		<put-attribute name="portal_content"
+			value="/WEB-INF/views/portal/user_profile/list_apply_job.jsp" />
+	</definition>
+	<definition name="list_favorite_job" extends="portal_template">
+		<put-attribute name="portal_content"
+			value="/WEB-INF/views/portal/user_profile/list_fav_job.jsp" />
+	</definition>
+	<definition name="list_suggested_job" extends="portal_template">
+		<put-attribute name="portal_content"
+			value="/WEB-INF/views/portal/user_profile/list_suggested_job.jsp" />
+	</definition>
+
+	<!-- Portal About -->
+	<definition name="portal_about" extends="portal_template">
+		<put-attribute name="portal_content"
+			value="/WEB-INF/views/portal/about/portal_about.jsp" />
+	</definition>
+	<!-- Portal About Why CMC -->
+	<definition name="portal_about_why_cmc" extends="portal_template">
+		<put-attribute name="portal_content"
+			value="/WEB-INF/views/portal/about/portal_about_why_cmc.jsp" />
+	</definition>
+	<!-- edit profile user -->
+	<definition name="edit_user_profile" extends="portal_template">
+		<put-attribute name="portal_content"
+			value="/WEB-INF/views/portal/user_profile/edit_user_profile.jsp" />
+	</definition>
+	<definition name="cms_group_tag_list" extends="cms_template">
+		<put-attribute name="cms_title" value="Manage News" />
+		<put-attribute name="cms_header_title" value="Quản lý nhóm Tag" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/group_tag/cms_group_tag_list.jsp" />
+	</definition>
+	<definition name="cms_group_tag_add" extends="cms_template">
+		<put-attribute name="cms_title" value="Manage News" />
+		<put-attribute name="cms_header_title" value="Quản lý nhóm Tag" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/group_tag/cms_add_group_tag.jsp" />
+	</definition>
+	<definition name="cms_group_tag_update" extends="cms_template">
+		<put-attribute name="cms_title" value="Manage News" />
+		<put-attribute name="cms_header_title" value="Quản lý nhóm Tag" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/group_tag/cms_update_group_tag.jsp" />
+	</definition>
+
+	<definition name="cms_tag_list" extends="cms_template">
+		<put-attribute name="cms_title" value="Manage News" />
+		<put-attribute name="cms_header_title" value="Quản lý Tag" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/group_tag/cms_tag_list.jsp" />
+	</definition>
+
+	<definition name="cms_tag_add" extends="cms_template">
+		<put-attribute name="cms_title" value="Manage News" />
+		<put-attribute name="cms_header_title" value="Quản lý Tag" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/group_tag/cms_add_tag.jsp" />
+	</definition>
+
+	<definition name="cms_tag_edit" extends="cms_template">
+		<put-attribute name="cms_title" value="Manage News" />
+		<put-attribute name="cms_header_title" value="Quản lý Tag" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/group_tag/cms_edit_tag.jsp" />
+	</definition>
+
+
+	<definition name="cms_advanced_config" extends="cms_template">
+		<put-attribute name="cms_title" value="Thiết lập kết nối LDAP" />
+		<put-attribute name="cms_header_title" value="Thiết lập kết nối LDAP" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/configuration/cms_advanced_config.jsp" />
+	</definition>
+
+	<!-- Job family -->
+	<definition name="cms_list_job_family" extends="cms_template">
+		<put-attribute name="cms_title" value="Danh sách Job Family" />
+		<put-attribute name="cms_header_title" value="Quản lý Job Code" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_code/job_family/cms_list_job_family.jsp" />
+	</definition>
+
+	<definition name="cms_add_job_family" extends="cms_template">
+		<put-attribute name="cms_title" value="Thêm mới Job Family" />
+		<put-attribute name="cms_header_title" value="Quản lý Job Code" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_code/job_family/cms_add_job_family.jsp" />
+	</definition>
+
+	<definition name="cms_edit_job_family" extends="cms_template">
+		<put-attribute name="cms_title" value="Chỉnh sửa thông tin Job Family" />
+		<put-attribute name="cms_header_title" value="Quản lý Job Code" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_code/job_family/cms_edit_job_family.jsp" />
+	</definition>
+
+	<definition name="cms_detail_job_family" extends="cms_template">
+		<put-attribute name="cms_title" value="Thông tin chi tiết Job Family" />
+		<put-attribute name="cms_header_title" value="Quản lý Job Code" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_code/job_family/cms_detail_job_family.jsp" />
+	</definition>
+
+	<!-- Job Sub family -->
+
+	<definition name="cms_list_job_sub_family" extends="cms_template">
+		<put-attribute name="cms_title" value="Danh sách Job Sub Family" />
+		<put-attribute name="cms_header_title" value="Quản lý Job Code" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_code/job_sub_family/cms_list_job_sub_family.jsp" />
+	</definition>
+
+	<definition name="cms_add_job_sub_family" extends="cms_template">
+		<put-attribute name="cms_title" value="Thêm mới Job Sub Family" />
+		<put-attribute name="cms_header_title" value="Quản lý Job Code" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_code/job_sub_family/cms_add_job_sub_family.jsp" />
+	</definition>
+
+	<definition name="cms_edit_job_sub_family" extends="cms_template">
+		<put-attribute name="cms_title" value="Chỉnh sửa thông tin Job Sub Family" />
+		<put-attribute name="cms_header_title" value="Quản lý Job Code" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_code/job_sub_family/cms_edit_job_sub_family.jsp" />
+	</definition>
+
+	<definition name="cms_detail_job_sub_family" extends="cms_template">
+		<put-attribute name="cms_title" value="Thông tin chi tiết Job Sub Family" />
+		<put-attribute name="cms_header_title" value="Quản lý Job Code" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_code/job_sub_family/cms_detail_job_sub_family.jsp" />
+	</definition>
+
+
+	<!-- Manage career stream -->
+	<definition name="cms_list_career_stream" extends="cms_template">
+		<put-attribute name="cms_title" value="Danh sách các ngạch nghề nghiệp" />
+		<put-attribute name="cms_header_title" value="Quản lý Job Code" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_code/career_stream/cms_list_career_stream.jsp" />
+	</definition>
+	<definition name="cms_edit_career_stream" extends="cms_template">
+		<put-attribute name="cms_title"
+			value="Chỉnh sửa thông tin ngạch nghề nghiệp" />
+		<put-attribute name="cms_header_title" value="Quản lý Job Code" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_code/career_stream/cms_edit_career_stream.jsp" />
+	</definition>
+	<definition name="cms_view_career_stream" extends="cms_template">
+		<put-attribute name="cms_title" value="Thông tin ngạch nghề nghiệp" />
+		<put-attribute name="cms_header_title" value="Quản lý Job Code" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_code/career_stream/cms_view_career_stream.jsp" />
+	</definition>
+	<definition name="cms_add_career_stream" extends="cms_template">
+		<put-attribute name="cms_title" value="Tạo mới ngạch nghề nghiệp" />
+		<put-attribute name="cms_header_title" value="Quản lý ngạch Job Code" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_code/career_stream/cms_add_career_stream.jsp" />
+	</definition>
+
+	<!-- Manage career level -->
+	<definition name="cms_list_career_level" extends="cms_template">
+		<put-attribute name="cms_title" value="Danh sách các cấp bậc" />
+		<put-attribute name="cms_header_title" value="Quản lý Job Code" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_code/career_level/cms_list_career_level.jsp" />
+	</definition>
+	<definition name="cms_edit_career_level" extends="cms_template">
+		<put-attribute name="cms_title" value="Chỉnh sửa thông tin cấp bậc" />
+		<put-attribute name="cms_header_title" value="Quản lý Job Code" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_code/career_level/cms_edit_career_level.jsp" />
+	</definition>
+	<definition name="cms_add_career_level" extends="cms_template">
+		<put-attribute name="cms_title" value="Tạo mới cấp bậc" />
+		<put-attribute name="cms_header_title" value="Quản lý Job Code" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_code/career_level/cms_add_career_level.jsp" />
+	</definition>
+	<definition name="cms_view_career_level" extends="cms_template">
+		<put-attribute name="cms_title" value="Chỉnh sửa thông tin cấp bậc" />
+		<put-attribute name="cms_header_title" value="Quản lý Job Code" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/job_code/career_level/cms_view_career_level.jsp" />
+	</definition>
+
+	<definition name="cms_weight" extends="cms_template">
+		<put-attribute name="cms_title" value="Quản lý trọng số" />
+		<put-attribute name="cms_header_title" value="Quản lý trọng số" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/weight/manager_weight.jsp" />
+	</definition>
+
+	<definition name="cms_weight_cv" extends="cms_template">
+		<put-attribute name="cms_title"
+			value="Thiết lập trọng số độ hoàn thiện CV" />
+		<put-attribute name="cms_header_title"
+			value="Thiết lập trọng số độ hoàn thiện CV" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/weight/manager_weight_cv.jsp" />
+	</definition>
+	
+	<definition name="cms_weight_history" extends="cms_template">
+		<put-attribute name="cms_title"
+			value="Thiết lập trọng số độ quan tâm" />
+		<put-attribute name="cms_header_title"
+			value="Thiết lập trọng số độ quan tâm" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/weight/manager_weight_history.jsp" />
+	</definition>
+
+
+	<definition name="cms_list_suggest_candidate" extends="cms_template">
+		<put-attribute name="cms_title" value="Danh sách ứng viên thích hợp" />
+		<put-attribute name="cms_header_title" value="Danh sách ứng viên thích hợp" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/candidate/cms_suggest_candidate.jsp" />
+	</definition>
+
+	<definition name="cms_view_news_post" extends="cms_template">
+		<put-attribute name="cms_title" value="Manage News" />
+		<put-attribute name="cms_header_title" value="Quản lý tin tức cần phê duyệt" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/news_post/cms_view_detail_news_post.jsp" />
+	</definition>
+
+	<!-- Manage portal user -->
+	<definition name="cms_list_portal_user" extends="cms_template">
+		<put-attribute name="cms_title" value="Danh sách các ứng viên" />
+		<put-attribute name="cms_header_title" value="Quản lý ứng viên" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/candidate/cms_list_portal_user.jsp" />
+	</definition>
+
+	<!-- Detail portal user -->
+	<definition name="cms_view_portal_user" extends="cms_template">
+		<put-attribute name="cms_title" value="Quản lý ứng viên ứng viên" />
+		<put-attribute name="cms_header_title" value="Quản lý ứng viên" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/candidate/cms_view_portal_user.jsp" />
+	</definition>
+
+	<!-- Manage CV -->
+	<definition name="cms_list_cv" extends="cms_template">
+		<put-attribute name="cms_title" value="Danh sách CV" />
+		<put-attribute name="cms_header_title" value="Quản lý ứng viên" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/candidate/cv/cms_list_cv.jsp" />
+	</definition>
+	<definition name="cms_list_portal_user_to_permisson"
+		extends="cms_template">
+		<put-attribute name="cms_title" value="Phân quyền các ứng viên" />
+		<put-attribute name="cms_header_title" value="Quản lý ứng viên" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/candidate/cms_list_portal_user_to_permission.jsp" />
+	</definition>
+
+
+	<!-- List job by candidate status -->
+	<definition name="cms_list_job_by_status_candidate"
+		extends="cms_template">
+		<put-attribute name="cms_title" value="Quản lý trạng thái của tin tuyển dụng" />
+		<put-attribute name="cms_header_title" value="Quản lý trạng thái của tin tuyển dụng" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/candidate/candidate_by_job/cms_list_job_by_status_candidate.jsp" />
+	</definition>
+
+	<!--ManagerPortal -->
+	<!--ManagerPortal -Banner -->
+	<definition name="cms_list_portal_banner" extends="cms_template">
+		<put-attribute name="cms_title" value="Quản lý Sliding banner" />
+		<put-attribute name="cms_header_title" value="Quản lý Sliding banner"/>
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/manager_portal/banner/cms_list_portal_banner.jsp" />
+	</definition>
+	<definition name="cms_edit_banner" extends="cms_template">
+		<put-attribute name="cms_title" value="Chỉnh sửa thông tin Banner" />
+		<put-attribute name="cms_header_title" value="Quản lý Banner" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/manager_portal/banner/cms_edit_banner.jsp" />
+	</definition>
+	<definition name="cms_view_banner" extends="cms_template">
+		<put-attribute name="cms_title" value="Hiển thị thông tin Banner" />
+		<put-attribute name="cms_header_title" value="Quản lý Banner" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/manager_portal/banner/cms_view_banner.jsp" />
+	</definition>
+	<definition name="cms_add_banner" extends="cms_template">
+		<put-attribute name="cms_title" value="Thêm mới Banner" />
+		<put-attribute name="cms_header_title" value="Quản lý Banner" />
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/manager_portal/banner/cms_add_banner.jsp" />
+	</definition>
+	<definition name="cms_clone_banner" extends="cms_template">
+		<put-attribute name="cms_title" value="Sao chép Banner" />
+		<put-attribute name="cms_header_title" value="Quản lý Banner" />
+		<put-attribute name="cms_content"
+					   value="/WEB-INF/views/cms/manager_portal/banner/cms_clone_banner.jsp" />
+	</definition>
+
+	<!--  ManagerPortal- People-Section -->
+	<definition name="cms_list_people_section" extends="cms_template">
+		<put-attribute name="cms_title" value="Quản lý People Section" />
+		<put-attribute name="cms_header_title" value="Quản lý People Section"/>
+		<put-attribute name="cms_content"
+			value="/WEB-INF/views/cms/manager_portal/banner/cms_list_people_section.jsp" />
+	</definition>
+	
+	<!--ManagerPortal -Income_section -->
+	<definition name="cms_list_income_section" extends="cms_template">
+		<put-attribute name="cms_title" value="Quản lý income_section" />
+		<put-attribute name="cms_header_title" value="Quản lý income_section"/>
+		<put-attribute name="cms_content"
+					   value="/WEB-INF/views/cms/manager_portal/income_section/cms_list_income_section.jsp" />
+	</definition>
+	<definition name="cms_edit_income_section" extends="cms_template">
+		<put-attribute name="cms_title" value="Chỉnh sửa thông tin income_section" />
+		<put-attribute name="cms_header_title" value="Quản lý income_section" />
+		<put-attribute name="cms_content"
+					   value="/WEB-INF/views/cms/manager_portal/income_section/cms_edit_income_section.jsp" />
+	</definition>
+	<definition name="cms_view_income_section" extends="cms_template">
+		<put-attribute name="cms_title" value="Hiển thị thông tin income_section" />
+		<put-attribute name="cms_header_title" value="Quản lý income_section" />
+		<put-attribute name="cms_content"
+					   value="/WEB-INF/views/cms/manager_portal/income_section/cms_view_income_section.jsp" />
+	</definition>
+	<definition name="cms_add_income_section" extends="cms_template">
+		<put-attribute name="cms_title" value="Thêm mới income_section" />
+		<put-attribute name="cms_header_title" value="Quản lý income_section" />
+		<put-attribute name="cms_content"
+					   value="/WEB-INF/views/cms/manager_portal/income_section/cms_add_income_section.jsp" />
+	</definition>
+	<definition name="cms_clone_income_section" extends="cms_template">
+		<put-attribute name="cms_title" value="Sao chép income_section" />
+		<put-attribute name="cms_header_title" value="Quản lý income_section" />
+		<put-attribute name="cms_content"
+					   value="/WEB-INF/views/cms/manager_portal/income_section/cms_clone_income_section.jsp" />
+	</definition>
+	
+	<!-- Manage Subsite -->
+	<definition name="cms_subsite_list" extends="cms_template">
+		<put-attribute name="cms_title" value="Quản lý Subsite" />
+		<put-attribute name="cms_header_title" value="Quản lý Subsite"/>
+		<put-attribute name="cms_content"
+					   value="/WEB-INF/views/cms/manager_portal/subsite/cms_list_subsite.jsp" />
+	</definition>
+	<definition name="cms_subsite_edit" extends="cms_template">
+		<put-attribute name="cms_title" value="Chỉnh sửa thông tin Subsite" />
+		<put-attribute name="cms_header_title" value="Quản lý subsite" />
+		<put-attribute name="cms_content"
+					   value="/WEB-INF/views/cms/manager_portal/subsite/cms_edit_subsite.jsp" />
+	</definition>
+	<definition name="cms_subsite_add" extends="cms_template">
+		<put-attribute name="cms_title" value="Thêm mới Subsite" />
+		<put-attribute name="cms_header_title" value="Quản lý Subsite" />
+		<put-attribute name="cms_content"
+					   value="/WEB-INF/views/cms/manager_portal/subsite/cms_add_subsite.jsp" />
+	</definition>
+</tiles-definitions>
